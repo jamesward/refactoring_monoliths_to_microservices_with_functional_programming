@@ -144,6 +144,23 @@ val bar = Action {
           </ul>
         </section>
         <section>
+          <h3>Why is mutability so bad?</h3>
+
+          <p>Spot the mutation:</p>
+          <pre><code>List&lt;Foo&gt; foos = dbService.getFoos();
+doSomething(foos);
+calcSomething(foos);
+foos = updateFoos(foos);</code></pre>
+
+          <blockquote class="fragment">You can't mutate memory over a network boundary.</blockquote>
+        </section>
+        <section>
+          <h3>Immutability Defines Clear &amp; Linear Mutation Boundaries</h3>
+
+          <pre><code>val foos = dbService.getFoos()
+val newFoos = updateFoos(foos)</code></pre>
+        </section>
+        <section>
           <h3>Refactoring to a Microservice</h3>
 
           <pre><code>val bar = Action.async {
@@ -173,6 +190,13 @@ val bar = Action {
             <li class="fragment">Service Versioning</li>
             <li class="fragment">Dev Experience</li>
           </ul>
+        </section>
+        <section>
+          <h2>Questions?</h2>
+          <br/>
+          <p>
+            Reach out: <a href="http://twitter.com/_JamesWard">@_JamesWard</a>
+          </p>
         </section>
 			</div>
 		</div>
